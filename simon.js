@@ -48,6 +48,9 @@ $(document).ready(
         // will link this to the selected css class so that it's also played when replaying the sequence.
         comp.push(parseInt(button));
         // this adds the button press to the comparison array, ready for the check function.
+        if (seq.length !== comp.length) {
+          $('#response').text('');
+        }
         check ();
         // Runs the check function to confirm if the button press is correct.
       }
