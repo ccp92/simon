@@ -24,10 +24,10 @@ $(document).ready(
         seq.push(selected);
         comp = [];
         // Resetting the comparison array upon a successful sequence.
-        alert('Correct');
+        $('#response').text('Correct');
       } else if (correct == false) {
         var score = seq.length - 1;
-        alert('Game Over. Final score: ' + score + '. Click OK to try again.');
+        $('#response').text('Game Over. Final score: ' + score + '. Click to try again.')
         seq = [selected];
         // Starts a new game with a fresh sequence.
         comp = [];
@@ -40,9 +40,14 @@ $(document).ready(
     $('button').click(
       // targetting the button id to avoid having to repeat code.
       function buttonPress () {
-        console.log(this.dataset.value);
-        comp.push(parseInt(this.dataset.value));
+        var button = parseInt(this.dataset.value);
         // buttons all have a data-value with their id numbers 1-4. This pulls the matching number from the button.
+        var audio = new Audio('simonSound'+button+'.mp3');
+        audio.play();
+        // the above specifies the specific audio file to play and then plays it when the button is pressed.
+        // will link this to the selected css class so that it's also played when replaying the sequence.
+        comp.push(parseInt(button));
+        // this adds the button press to the comparison array, ready for the check function.
         check ();
         // Runs the check function to confirm if the button press is correct.
       }
