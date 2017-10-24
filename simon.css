@@ -1,10 +1,11 @@
 .box {
-  width: 5em;
-  height: 3em;
+  width: 12em;
+  height: 12em;
 }
 
 .selected {
-  
+  width: 12em;
+  height: 12em;
 }
 
 #red1 {
@@ -21,4 +22,15 @@
 
 #yellow4 {
   background-color: yellow;
+}
+
+#disk {
+  width: 24em;
+  height: 24em;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
