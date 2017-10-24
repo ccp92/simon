@@ -6,21 +6,22 @@
 .selected {
   width: 12em;
   height: 12em;
+  background-color: darkgrey !important;
 }
 
-#red1 {
+#button1 {
   background-color: red;
 }
 
-#blue2 {
+#button2 {
   background-color: blue;
 }
 
-#green3 {
+#button3 {
   background-color: green;
 }
 
-#yellow4 {
+#button4 {
   background-color: yellow;
 }
 

@@ -9,8 +9,16 @@ $(document).ready(
         var initial = Math.floor((Math.random()*4) + 1);
         var seq = [initial];
         // Upon page load, a new sequence is created. Will likely adjust this to be on press of a start button in future.
-        console.log(seq);
         // Declared outside of the function to prevent it being over-written on each button press.
+
+          function repeat () {
+            var audio = new Audio('simonSound'+seq[0]+'.mp3');
+            audio.play();
+            var pushed = '#button' + seq[0];
+            $(pushed).removeClass('box').addClass('selected');
+          };
+          repeat ();
+
         var comp = [];
         // Comparison array to compare the generated sequence against the user's attempt.
 
@@ -41,8 +49,8 @@ $(document).ready(
 
         }
 
-        $('button').click(
-          // targetting the button id to avoid having to repeat code.
+        $('.entry').click(
+          // targetting the entry class to avoid conflicts with the start button.
           function buttonPress () {
             var button = parseInt(this.dataset.value);
             // buttons all have a data-value with their id numbers 1-4. This pulls the matching number from the button.
