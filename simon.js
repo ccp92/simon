@@ -47,7 +47,8 @@ $(document).ready(
             comp = [];
             // Resetting the comparison array upon a successful sequence.
             $('#response').text('Correct');
-            setTimeout(repeat, 1000);
+            repeat ();
+            // Upon a successful copy, restarts the function to repeat the flashes of the current sequence.
           } else if (correct == false) {
             var score = seq.length - 1;
             $('#response').text('Game Over. Final score: ' + score + '. Click to try again.')
