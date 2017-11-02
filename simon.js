@@ -12,12 +12,22 @@ $(document).ready(
         // Declared outside of the function to prevent it being over-written on each button press.
 
           function repeat () {
-            var audio = new Audio('simonSound'+seq[0]+'.mp3');
-            audio.play();
-            var pushed = '#button' + seq[0];
-            $(pushed).removeClass('box').addClass('selected');
+            for (var j=0; j <= seq.length-1; j++) {
+              var audio = new Audio('simonSound'+seq[j]+'.mp3');
+              audio.play();
+              var pushed = '#button' + seq[j];
+              function colourOff () {
+                $(pushed).removeClass('box').addClass('selected');
+              };
+              colourOff ();
+              function colourOn () {
+                $(pushed).removeClass('selected').addClass('box');
+              };
+              setTimeout(colourOn, 300);
+            }
           };
           repeat ();
+          // This function is playing the sound of the 1st item of the sequence and changing the colour of the button to grey.
 
         var comp = [];
         // Comparison array to compare the generated sequence against the user's attempt.
@@ -37,6 +47,7 @@ $(document).ready(
             comp = [];
             // Resetting the comparison array upon a successful sequence.
             $('#response').text('Correct');
+            setTimeout(repeat, 1000);
           } else if (correct == false) {
             var score = seq.length - 1;
             $('#response').text('Game Over. Final score: ' + score + '. Click to try again.')
