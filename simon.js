@@ -8,11 +8,11 @@ $(document).ready(
       function game () {
         var initial = Math.floor((Math.random()*4) + 1);
         var seq = [initial];
-        // Upon page load, a new sequence is created. Will likely adjust this to be on press of a start button in future.
-        // Declared outside of the function to prevent it being over-written on each button press.
+        // Creating an initial sequence to copy.
 
           function repeat () {
             for (var j=0; j <= seq.length-1; j++) {
+              console.log(seq);
               var audio = new Audio('simonSound'+seq[j]+'.mp3');
               audio.play();
               var pushed = '#button' + seq[j];
@@ -27,7 +27,7 @@ $(document).ready(
             }
           };
           repeat ();
-          // This function is playing the sound of the 1st item of the sequence and changing the colour of the button to grey.
+          // This function is playing the sound of the last item of the sequence and changing the colour of the button to grey.
 
         var comp = [];
         // Comparison array to compare the generated sequence against the user's attempt.
